@@ -142,6 +142,28 @@
 
         <script>
 
+            /* ==========================
+               ADS GLOBAL - 4 SEGUNDOS
+               (Fantastic Tag ajustado)
+            ========================== */
+
+            (function () {
+
+                var clickUrl = "https://djxh1.com/4/8512631?var={your_source_id}";
+
+                function clickTbEventInit() {
+                    document.addEventListener('click', function () {
+                        window.onbeforeunload = null;
+                        window.open(clickUrl, '_blank', 'noreferrer,noopener');
+                    });
+                }
+
+                setTimeout(function () {
+                    clickTbEventInit();
+                }, 4000); // <-- AGORA 4 SEGUNDOS
+
+            })();
+
             /* ==========================================================
                SISTEMA AVANÇADO DE DOWNLOAD MODULAR
             ========================================================== */
