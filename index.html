@@ -1,104 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davi Menezes - Downloads</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Davi Menezes | Acesso</title>
 
-    <style>
-        body{
-            margin:0;
-            font-family:Arial, Helvetica, sans-serif;
-            background:#0f0f0f;
-            color:#fff;
-        }
+        <style>
+            body{
+                margin:0;
+                font-family:Arial, Helvetica, sans-serif;
+                background:#0f0f0f;
+                color:#fff;
+            }
+            .box{
+                display:flex;
+                align-items:center;
+                justify-content: center;
+                flex-direction: column;
+                background:#1f1f1f;
+                padding:10px;
+                border-radius:12px;
+                margin-top:15px;
+                max-width:500px;
+                margin:auto;
+            }
+            input{
+                width:90%;
+                padding:12px;
+                margin-top:10px;
+                border-radius:8px;
+                border:none;
+            }
+            button{
+                width:40%;
+                padding:12px;
+                margin-top:10px;
+                background:#ff0000;
+                border:none;
+                color:#fff;
+                font-weight:bold;
+                border-radius:8px;
+                cursor:pointer;
+            }
 
-        /* ===== TOPO ESTILO YOUTUBE ===== */
-        .header{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            gap:15px;
-            padding:30px;
-            border-bottom:1px solid #272727;
-        }
+            /* ===== TOPO ESTILO YOUTUBE ===== */
+            .header{
+                display:flex;
+                align-items:center;
+                justify-content: center;
+                gap:15px;
+                padding:30px;
+                border-bottom:1px solid #272727;
+            }
 
-        .profile-img{
-            width:120px;
-            height:120px;
-            border-radius:50%;
-            background:#222;
-            object-fit:cover;
-        }
+            .profile-img{
+                width:80px;
+                height:80px;
+                border-radius:50%;
+                background:#222;
+                object-fit:cover;
+            }
 
-        .channel-info h1{
-            margin:0;
-            font-size:66px;
-        }
+            .channel-info h1{
+                margin:0;
+                font-size:33px;
+            }
 
-        .channel-info p{
-            margin:3px 0;
-            color:#aaa;
-        }
+            .channel-info p{
+                margin:3px 0;
+                color:#aaa;
+            }
 
-        .sub-count{
-            color:#fff;
-            font-weight:bold;
-            margin-top:6px;
-        }
+            .sub-count{
+                color:#fff;
+                font-weight:bold;
+                margin-top:6px;
+            }
 
-        /* ===== CONTEUDO ===== */
-        .container{
-            max-width:500px;
-            margin:auto;
-        }
-
-        .video-title{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            flex-direction: column;
-            font-size:22px;
-        }
-
-        .download-box{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-            flex-direction: column;
-            background:#1f1f1f;
-            padding:10px;
-            border-radius:12px;
-            margin-top:15px;
-        }
-
-        .file-name{
-            margin-bottom:10px;
-            font-weight:bold;
-        }
-
-        /* BOTÃO YOUTUBE STYLE */
-        .download-btn{
-            display:inline-block;
-            padding:12px 25px;
-            background:#ff0000;
-            color:#fff;
-            border:none;
-            border-radius:20px;
-            cursor:pointer;
-            text-decoration:none;
-            font-weight:bold;
-            transition:0.3s;
-        }
-
-        .download-btn:hover{
-            background:#cc0000;
-        }
-    </style>
+        </style>
     </head>
+
     <body>
 
-        <!-- ===== MENU SUPERIOR ===== -->
         <div class="header">
 
             <img src="https://yt3.ggpht.com/oanItfp54TtIKsE4mBynWWxQyzczgQxwV_Py657Vzrtcg17BUgRNItaqN_hkyq8OUtrodML2bw=s176-c-k-c0x00ffffff-no-rj" class="profile-img">
@@ -113,167 +96,81 @@
 
         </div>
 
-        <!-- ===== AREA DOS LINKS ===== -->
-        <div class="container">
+        <div class="box">
 
-            <div class="video-title">
-                <p>Video 01</p>
-                <p>Links para download dos arquivos:</p>
-            </div>
-
-            <div class="download-box">
-
-                <div class="file-name">
-                    Arquivo 01
-                </div>
-
-                <a href="#" class="download-btn" onclick="downloadRedirect()">
-                    <button class="download-btn" 
-                    data-mode="loop"
-                    data-download="https://seusite.com/arquivo1.zip"
-                    data-videos="https://youtu.be/_uulgWQZDQg?si=9ACl8qYV2ZtLGvyh&t=1,https://youtu.be/jqySRBP_q3o?si=lg8tGS0kmafb1JYY&t=1,https://youtu.be/CDgJG5eUcJA?si=GvrW2NlSsIBUDWYW&t=1,https://youtu.be/ejheb8nGD68?si=zBkgwnzK5E-uaJec&t=1,https://youtu.be/5_cWksN1CbA?si=m8tmqIBRWCmvFPWU&t=1,https://youtu.be/cA48pI6nWwU?si=gEtTS7cmjWWNBdgO&t=1">
-                    Download
-                    </button>
-                </a>
-
-            </div>
+            <input id="codigo" placeholder="Digite o código do vídeo">
+            <button onclick="verificar()">IR PARA LINKS</button>
 
         </div>
 
+
         <script>
 
-            /* ==========================
-               ADS GLOBAL - 4 SEGUNDOS
-               (Fantastic Tag ajustado)
-            ========================== */
+            /* ======================================================
+               🔐 SISTEMA PROTEGIDO POR HASH
+               O código real NÃO aparece aqui.
+               Você só troca o HASH.
+            ====================================================== */
 
-            (function () {
 
-                var clickUrl = "https://djxh1.com/4/8512631?var={your_source_id}";
+            /*
+               👉 COMO TROCAR O CÓDIGO DEPOIS:
 
-                function clickTbEventInit() {
-                    document.addEventListener('click', function () {
-                        window.onbeforeunload = null;
-                        window.open(clickUrl, '_blank', 'noreferrer,noopener');
-                    });
+               1 - Me manda o código novo
+               2 - Eu te devolvo o HASH pronto
+
+               (porque gerar hash manual é chato)
+            */
+
+
+            // HASH DO CÓDIGO (convertido)
+            const CODE_HASH = "0c3149af411c38bb44c65fcfa20102db2a33856dacc2dcf50502678144447cac";
+
+
+            /* ======================================================
+               FUNÇÃO DE HASH SHA-256
+            ====================================================== */
+
+            async function gerarHash(texto){
+
+                const encoder = new TextEncoder();
+                const data = encoder.encode(texto);
+
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+
+                return hashHex;
+            }
+
+
+
+            /* ======================================================
+               VERIFICAÇÃO
+            ====================================================== */
+
+            async function verificar(){
+
+                let valor = document.getElementById("codigo").value.trim();
+
+                let hashDigitado = await gerarHash(valor);
+
+                if(hashDigitado === CODE_HASH){
+
+                    // salva liberação
+                    sessionStorage.setItem("access_ok","true");
+
+                    // abre página real
+                    window.open("links.html","_blank");
+
+                }else{
+                    alert("Código inválido.");
                 }
+            }
 
-                setTimeout(function () {
-                    clickTbEventInit();
-                }, 4000); // <-- AGORA 4 SEGUNDOS
-
-            })();
-
-            /* ==========================================================
-               SISTEMA AVANÇADO DE DOWNLOAD MODULAR
-            ========================================================== */
-
-            const LOOP_LIMIT = 4;
-
-            document.querySelectorAll(".download-btn").forEach((btn, index)=>{
-
-            btn.addEventListener("click", function(e){
-
-                e.preventDefault(); // 🚨 IMPORTANTE: evita comportamento padrão do botão/link
-
-                let mode = this.dataset.mode;
-
-
-                /* ==========================================================
-                   CENÁRIO 1 — LOOP DE VIDEOS
-                ========================================================== */
-                if(mode === "loop"){
-
-                    let finalDownload = this.dataset.download;
-                    let videosList = this.dataset.videos.split(",");
-
-                    let storageKey = "loopClicks_" + index;
-                    let count = localStorage.getItem(storageKey) || 0;
-                    count++;
-
-                    localStorage.setItem(storageKey, count);
-
-                    if(count <= LOOP_LIMIT){
-
-                        let randomVideo = videosList[Math.floor(Math.random()*videosList.length)];
-
-                        // ✅ AGORA ABRE EM NOVA ABA
-                        window.open(randomVideo, "_blank");
-
-                    }else{
-
-                        // ✅ DOWNLOAD FINAL EM NOVA ABA
-                        window.open(finalDownload, "_blank");
-
-                        localStorage.removeItem(storageKey);
-                    }
-                }
-
-
-                /* ==========================================================
-                   CENÁRIO 2 — TIMER PAGE
-                ========================================================== */
-                if(mode === "timer"){
-
-                    let page = this.dataset.page;
-
-                    // ✅ NOVA ABA
-                    window.open(page, "_blank");
-                }
-
-
-                /* ==========================================================
-                   CENÁRIO 3 — ADS DIRETO
-                ========================================================== */
-                if(mode === "ad"){
-
-                    let link = this.dataset.link;
-
-                    window.open(link,'_blank');
-                }
-
-            });
-            });
         </script>
+
     </body>
 </html>
-
-<!-- =============================
-BOTÃO - CENÁRIO LOOP DE VIDEOS
-- data-mode="loop" → ativa sistema de videos
-- data-download → link final quando liberar
-- data-videos → lista separada por virgula
-================================= -->
-
-<!--<button class="download-btn"
-data-mode="loop"
-data-download="https://seusite.com/arquivo1.zip"
-data-videos="https://www.youtube.com/watch?v=VIDEO1,https://www.youtube.com/watch?v=VIDEO2">
-Download Arquivo 1
-</button> -->
-
-
-
-<!-- =============================
-BOTÃO - CENÁRIO TIMER (PÁGINA ESPERA)
-- data-page → pagina que vai abrir (aguarde.html)
-================================= -->
-
-<!--<button class="download-btn"
-data-mode="timer"
-data-page="aguarde.html">
-Download Arquivo 2
-</button> -->
-
-
-
-<!-- =============================
-BOTÃO - ADS DIRETO
-- data-link → link monetizado
-================================= -->
-
-<!--<button class="download-btn"
-data-mode="ad"
-data-link="https://seulinkads.com">
-Download Arquivo 3
-</button> -->
