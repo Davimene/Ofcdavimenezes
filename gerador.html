@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de HASH SHA-256</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#0f0f0f;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.box{
+    background:#181818;
+    padding:30px;
+    border-radius:10px;
+    width:400px;
+    text-align:center;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    border:none;
+}
+button{
+    margin-top:10px;
+    padding:10px;
+    width:100%;
+    background:#ff0000;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+}
+textarea{
+    width:100%;
+    margin-top:10px;
+    height:80px;
+    border-radius:6px;
+    border:none;
+    padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🔐 Gerar HASH SHA-256</h2>
+
+<input id="texto" placeholder="Digite seu código aqui">
+
+<button onclick="gerar()">Gerar HASH</button>
+
+<textarea id="resultado" placeholder="O hash vai aparecer aqui..."></textarea>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   GERADOR DE HASH
+   Você digita o código e ele gera automaticamente
+===================================================== */
+
+async function gerar(){
+
+    let valor = document.getElementById("texto").value;
+
+    const encoder = new TextEncoder();
+    const data = encoder.encode(valor);
+
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    const hashHex = hashArray.map(b=>b.toString(16).padStart(2,'0')).join('');
+
+    document.getElementById("resultado").value = hashHex;
+}
+
+</script>
+
+</body>
+</html>
